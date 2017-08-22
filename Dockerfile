@@ -4,10 +4,7 @@ MAINTAINER "Levent SAGIROGLU" <LSagiroglu@gmail.com>
 
 VOLUME /srv
 
-COPY bin /srv/bin
-COPY www /srv/www
-COPY etc /srv/etc
-COPY log /srv/log
+COPY srv /srv
 
 EXPOSE 80 443 2015
 
