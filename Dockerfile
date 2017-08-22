@@ -2,14 +2,14 @@ FROM scratch
 
 MAINTAINER "Levent SAGIROGLU" <LSagiroglu@gmail.com>
 
-VOLUME /www
-VOLUME /etc
+VOLUME /srv
 
-COPY bin /bin
-COPY www /www
-COPY etc /etc
+COPY bin /srv/bin
+COPY www /srv/www
+COPY etc /srv/etc
+COPY log /srv/log
 
 EXPOSE 80 443 2015
 
-ENTRYPOINT  ["/bin/caddy"]
-CMD ["--conf", "/etc/Caddyfile"]
+ENTRYPOINT  ["/srv/bin/caddy"]
+CMD ["--conf", "/srv/etc/Caddyfile"]
