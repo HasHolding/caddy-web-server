@@ -1,18 +1,9 @@
-FROM alpine:latest 
-MAINTAINER "Levent SAGIROGLU" <LSagiroglu@gmail.com>
-ARG VERSION=v0.10.10
-RUN apk update && \
-    apk upgrade && \
-    apk add --update openssl && \
-    apk add --update tzdata && \    
-    apk add ca-certificates && \
-	   update-ca-certificates && \
-    cp /usr/share/zoneinfo/Europe/Istanbul /etc/localtime && \
-    echo "Europe/Istanbul" >  /etc/timezone && \
-    apk del tzdata
+FROM hasholding/alpine-base
+LABEL maintainer "Levent SAGIROGLU <LSagiroglu@gmail.com>"
+ARG VERSION=v0.10.11
 
-VOLUME /srv 
-COPY srv /srv
+VOLUME /shared
+COPY shared /shared
 COPY bin /bin
 WORKDIR /bin
 RUN wget https://github.com/mholt/caddy/releases/download/${VERSION}/caddy_${VERSION}_linux_amd64.tar.gz -O caddy.tar.gz

@@ -1,2 +1,2 @@
 #!/bin/sh
-/bin/caddy --conf "/srv${WEBSRV}/etc/Caddyfile" 
+/bin/caddy --conf "/shared${WEBSRV}/etc/Caddyfile" 
